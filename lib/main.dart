@@ -28,11 +28,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _tabIndex = 0;
-     
+    final List  _chiledList = [HomePages(),KehuPage(),ParagromPage(),MinePage()]; 
      @override
      Widget build(BuildContext context) {
-       return Scaffold(
+       var scaffold = Scaffold(
            appBar: AppBar(title: Text(widget.title)),
+           body: _chiledList[_tabIndex] ,
            bottomNavigationBar: BottomNavigationBar(
                type: BottomNavigationBarType.fixed,
                currentIndex: _tabIndex,
@@ -50,6 +51,7 @@ class _HomePageState extends State<HomePage> {
                      title: Text('工作台'), icon: Icon(Icons.cake)),
                  BottomNavigationBarItem(title: Text('我的'), icon: Icon(Icons.menu))
                ]));
+       return scaffold;
      }
    
 }
