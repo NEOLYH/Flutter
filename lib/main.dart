@@ -3,6 +3,7 @@ import 'page/home/home.dart';
 import 'page/kehu/kehu.dart';
 import 'page/paragrom/paragrom.dart';
 import 'page/mine/mine.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 
 void main() => runApp(MyApp());
 
