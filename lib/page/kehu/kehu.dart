@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 
-class KehuPage extends StatelessWidget {
-  const KehuPage({Key key}) : super(key: key);
+class KehuPage extends StatefulWidget {
+  KehuPage({Key key}) : super(key: key);
 
+  _KehuPageState createState() => _KehuPageState();
+}
+
+class _KehuPageState extends State<KehuPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('客户')
+    return new MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text('客户'),
+        ),
+      ),
     );
   }
 }

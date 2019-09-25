@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 
-class HomePages extends StatelessWidget {
-  const HomePages({Key key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key key}) : super(key: key);
 
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('首页')
+    return new MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text('首页'),
+        ),
+      ),
     );
   }
 }
