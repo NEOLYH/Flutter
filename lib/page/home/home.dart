@@ -5,8 +5,9 @@ class HomePages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('首页')
-    );
+    var materialApp = MaterialApp(
+           title: '首页',
+        );
+        return materialApp;
   }
 }
