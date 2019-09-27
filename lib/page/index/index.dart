@@ -4,6 +4,7 @@ import 'package:neo_lu/page/kehu/kehu.dart';
 import 'package:neo_lu/page/paragrom/paragrom.dart';
 import 'package:neo_lu/page/mine/mine.dart';
 import 'package:neo_lu/page/index/navigation_icon_view.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Index extends StatefulWidget {
   @override
@@ -36,6 +37,11 @@ class _IndexState extends State<Index> with TickerProviderStateMixin {
         vsync: this,
       ),
       new NavigationIconView(
+        icon: new Icon(Icons.edit_location),
+        title: new Text('分享'),
+        vsync: this,
+      ),
+      new NavigationIconView(
         icon: new Icon(Icons.slow_motion_video),
         title: new Text('我的'),
         vsync: this,
@@ -48,6 +54,7 @@ class _IndexState extends State<Index> with TickerProviderStateMixin {
       new HomePage(),
       new KehuPage(),
       new ParagromPage(),
+      new MinePage(),
       new MinePage()
     ];
     _currentPage = _pageList[_currentIndex];
@@ -67,6 +74,7 @@ class _IndexState extends State<Index> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     final BottomNavigationBar bottomNavigationBar = new BottomNavigationBar(
         items: _navigationViews
             .map((NavigationIconView navigationIconView) =>

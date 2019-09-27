@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neo_lu/page/home/navigation_swiper.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -12,10 +13,17 @@ class _HomePageState extends State<HomePage> {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('首页'),
-        ),
-      ),
+          appBar: new AppBar(
+            title: new Text('首页'),
+          ),
+          body: new Container(
+              child: new Column(
+            children: <Widget>[
+              new Container(
+                child: NavigationSwiper(),
+              )
+            ],
+          ))),
     );
   }
 }

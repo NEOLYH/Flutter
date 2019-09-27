@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neo_lu/page/kehu/petCard.dart';
 
 class KehuPage extends StatefulWidget {
   KehuPage({Key key}) : super(key: key);
@@ -15,6 +16,7 @@ class _KehuPageState extends State<KehuPage> {
         appBar: new AppBar(
           title: new Text('客户'),
         ),
+        body: new petCard(),
       ),
     );
   }
