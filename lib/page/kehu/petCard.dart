@@ -201,7 +201,9 @@ class petCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenUtil.getInstance().setHeight(800),
+      constraints: BoxConstraints(
+        minHeight: ScreenUtil.getInstance().setHeight(660),
+      ),
       child: Container(
         margin: EdgeInsets.all(16),
         decoration: BoxDecoration(
