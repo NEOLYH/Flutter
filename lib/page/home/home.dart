@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neo_lu/page/home/navigation_swiper.dart';
+import 'package:neo_lu/page/home/yunnanImpression.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -16,14 +17,16 @@ class _HomePageState extends State<HomePage> {
           appBar: new AppBar(
             title: new Text('首页'),
           ),
-          body: new Container(
-              child: new Column(
+          body: new SingleChildScrollView(
+              child: new Container(
+                  child: new Column(
             children: <Widget>[
               new Container(
                 child: NavigationSwiper(),
-              )
+              ),
+              YunnanImpression()
             ],
-          ))),
+          )))),
     );
   }
 }
