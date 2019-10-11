@@ -33,7 +33,12 @@ class _MinePageState extends State<MinePage> {
               scrollDirection: Axis.horizontal,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[TopLogin(), WorkView(), CommentView()],
+                children: <Widget>[
+                  TopLogin(),
+                  WorkView(),
+                  CommentView(),
+                  _listPencenView()
+                ],
               ),
             )));
   }
@@ -178,4 +183,34 @@ class WorkList extends StatelessWidget {
       child: CustomScrollView(),
     );
   }
+}
+
+Widget _listTitle(String title, Widget myIcon) {
+  return Container(
+      // height: ScreenUtil().setHeight(50),
+      width: ScreenUtil().setWidth(700),
+      decoration: BoxDecoration(
+          border: Border(bottom: BorderSide(width: 1, color: Colors.black12))),
+      child: ListTile(
+        leading: myIcon,
+        title: Text(title),
+        trailing: Icon(Icons.chevron_right),
+      ));
+}
+
+Widget _listPencenView() {
+  return Container(
+    margin: EdgeInsets.fromLTRB(20, 10, 0, 0),
+    // height: ScreenUtil().setHeight(400),
+    width: ScreenUtil().setWidth(680),
+    child: Column(
+      children: <Widget>[
+        _listTitle('我要投诉', Icon(Icons.cloud)),
+        _listTitle('电子发票', Icon(Icons.color_lens)),
+        _listTitle('优惠券', Icon(Icons.confirmation_number)),
+        _listTitle('设置', Icon(Icons.settings)),
+        _listTitle('推荐好友', Icon(Icons.settings_input_antenna))
+      ],
+    ),
+  );
 }
