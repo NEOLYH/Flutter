@@ -3,6 +3,7 @@ import 'package:neo_lu/page/home/home.dart';
 import 'package:neo_lu/page/kehu/kehu.dart';
 import 'package:neo_lu/page/paragrom/paragrom.dart';
 import 'package:neo_lu/page/mine/mine.dart';
+import 'package:neo_lu/page/share/share.dart';
 import 'package:neo_lu/page/index/navigation_icon_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -54,7 +55,7 @@ class _IndexState extends State<Index> with TickerProviderStateMixin {
       new HomePage(),
       new KehuPage(),
       new ParagromPage(),
-      new MinePage(),
+      new SharePage(),
       new MinePage()
     ];
     _currentPage = _pageList[_currentIndex];
