@@ -11,6 +11,7 @@ class _YunnanImpressionState extends State<YunnanImpression> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.white,
       margin: EdgeInsets.only(top: 16),
       // padding: EdgeInsets.symmetric(horizontal: 16),
       // margin: EdgeInsets.all(16),
