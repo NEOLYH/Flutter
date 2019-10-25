@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../wechat/wechat.dart';
 
 class MinePage extends StatefulWidget {
   MinePage({Key key}) : super(key: key);
@@ -18,12 +19,20 @@ class _MinePageState extends State<MinePage> {
         appBar: new AppBar(
           backgroundColor: Colors.white,
           elevation: 0, //去除导航栏底部的线
+          brightness: Brightness.light,
           actions: <Widget>[
             new IconButton(
               icon: Icon(Icons.fingerprint),
               padding: EdgeInsets.only(right: 30.0),
               color: Colors.blueGrey,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                    builder: (context) => ConverspationPage(),
+                  ),
+                );
+              },
             )
           ],
           title: new Text(
