@@ -217,18 +217,24 @@ class WorkList extends StatelessWidget {
   }
 }
 
-Widget _listTitle(String title, Widget myIcon) {
+Widget _listTitle(String title, Widget myIcon, int idx) {
   return Container(
-      // height: ScreenUtil().setHeight(50),
-      width: ScreenUtil().setWidth(720),
-      decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(width: 1, color: Colors.black12))),
+    // height: ScreenUtil().setHeight(50),
+    width: ScreenUtil().setWidth(720),
+    decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(width: 1, color: Colors.black12))),
+    child: new GestureDetector(
       child: ListTile(
         contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
         leading: myIcon,
         title: Text(title),
         trailing: Icon(Icons.chevron_right),
-      ));
+      ),
+      onTap: () {
+        print(idx);
+      },
+    ),
+  );
 }
 
 Widget _listPencenView() {
@@ -238,12 +244,12 @@ Widget _listPencenView() {
     width: ScreenUtil().setWidth(680),
     child: Column(
       children: <Widget>[
-        _listTitle('我要投诉', Icon(Icons.cloud)),
-        _listTitle('电子发票', Icon(Icons.color_lens)),
-        _listTitle('优惠券', Icon(Icons.confirmation_number)),
-        _listTitle('设置', Icon(Icons.settings)),
-        _listTitle('推荐好友', Icon(Icons.settings_input_antenna)),
-        _listTitle('出去走一走', Icon(Icons.favorite))
+        _listTitle('我要投诉', Icon(Icons.cloud), 0),
+        _listTitle('电子发票', Icon(Icons.color_lens), 1),
+        _listTitle('优惠券', Icon(Icons.confirmation_number), 2),
+        _listTitle('设置', Icon(Icons.settings), 3),
+        _listTitle('推荐好友', Icon(Icons.settings_input_antenna), 4),
+        _listTitle('出去走一走', Icon(Icons.favorite), 5)
       ],
     ),
   );

@@ -117,21 +117,12 @@ class _ConversationItem extends StatelessWidget {
       SizedBox(height: 10.0),
     ];
     if (conversation.isMute) {
-      _rightArea.add(Icon(
-          IconData(
-            0xe755,
-            fontFamily: Constants.IconFontFamily,
-          ),
+      _rightArea.add(Icon(Icons.alarm_off,
           color: Color(AppColors.ConversationMuteIcon),
           size: Constants.ConversationMuteIconSize));
     } else {
-      _rightArea.add(Icon(
-          IconData(
-            0xe755,
-            fontFamily: Constants.IconFontFamily,
-          ),
-          color: Colors.transparent,
-          size: Constants.ConversationMuteIconSize));
+      _rightArea.add(Icon(Icons.alarm_on,
+          color: Colors.transparent, size: Constants.ConversationMuteIconSize));
     }
 
     return Material(
@@ -226,7 +217,7 @@ class _DeviceInfoItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           SizedBox(width: 8.0),
-          Icon(IconData(this.iconName, fontFamily: Constants.IconFontFamily),
+          Icon(Icons.laptop_mac,
               size: 24.0, color: Color(AppColors.DeviceInfoItemIcon)),
           SizedBox(width: 24.0),
           Text('$deviceName 微信已登录，手机通知已关闭。',
