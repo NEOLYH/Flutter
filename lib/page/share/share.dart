@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import 'dart:convert';
 import 'package:neo_lu/page/model/myModel/yncc.dart';
 import 'package:neo_lu/page/unitils/netWorking.dart';
+import 'package:neo_lu/page/model/wechat/yyn.dart';
 
 class SharePage extends StatefulWidget {
   SharePage({Key key}) : super(key: key);
@@ -20,30 +22,14 @@ class _SharePageState extends State<SharePage> {
 
   void getHttp() async {
     HttpCore.instance.get('yyn/food', (data) {
-      print(data);
+      Yncc yncc = Yncc.fromJson(data);
+      setState(() {
+        shareString = yncc.images[0].brief;
+      });
     }, errorCallBack: (errorMsg) {
       print("error:" + errorMsg);
       return null;
     });
-
-    // try {
-    //   Response response =
-    //       await Dio().get("http://yapi.demo.qunar.com/mock/19110/yyn/food");
-    //   print(response.data);
-
-    //   // String res2Json = json.encode(response.data);
-    //   // Map<String, dynamic> map = json.decode(res2Json);
-
-    //   // print(map);
-
-    //   Yncc yncc = Yncc.fromJson(response.data);
-
-    //   setState(() {
-    //     shareString = yncc.title;
-    //   });
-    // } catch (e) {
-    //   print(e);
-    // }
   }
 
   @override

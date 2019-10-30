@@ -4,15 +4,15 @@ part 'yncc.g.dart';
 
 @JsonSerializable()
 class Yncc extends Object {
-  @JsonKey(name: 'data')
-  List<Data> data;
+  @JsonKey(name: 'name')
+  String name;
 
-  @JsonKey(name: 'title')
-  String title;
+  @JsonKey(name: 'images')
+  List<Images> images;
 
   Yncc(
-    this.data,
-    this.title,
+    this.name,
+    this.images,
   );
 
   factory Yncc.fromJson(Map<String, dynamic> srcJson) =>
@@ -22,7 +22,7 @@ class Yncc extends Object {
 }
 
 @JsonSerializable()
-class Data extends Object {
+class Images extends Object {
   @JsonKey(name: 'brief')
   String brief;
 
@@ -38,7 +38,7 @@ class Data extends Object {
   @JsonKey(name: 'url')
   String url;
 
-  Data(
+  Images(
     this.brief,
     this.image,
     this.title,
@@ -46,8 +46,8 @@ class Data extends Object {
     this.url,
   );
 
-  factory Data.fromJson(Map<String, dynamic> srcJson) =>
-      _$DataFromJson(srcJson);
+  factory Images.fromJson(Map<String, dynamic> srcJson) =>
+      _$ImagesFromJson(srcJson);
 
-  Map<String, dynamic> toJson() => _$DataToJson(this);
+  Map<String, dynamic> toJson() => _$ImagesToJson(this);
 }

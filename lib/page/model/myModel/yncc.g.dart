@@ -8,22 +8,22 @@ part of 'yncc.dart';
 
 Yncc _$YnccFromJson(Map<String, dynamic> json) {
   return Yncc(
-      (json['data'] as List)
+      json['name'] as String,
+      (json['images'] as List)
           ?.map((e) =>
-              e == null ? null : Data.fromJson(e as Map<String, dynamic>))
-          ?.toList(),
-      json['title'] as String);
+              e == null ? null : Images.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$YnccToJson(Yncc instance) =>
-    <String, dynamic>{'data': instance.data, 'title': instance.title};
+    <String, dynamic>{'name': instance.name, 'images': instance.images};
 
-Data _$DataFromJson(Map<String, dynamic> json) {
-  return Data(json['brief'] as String, json['image'] as String,
+Images _$ImagesFromJson(Map<String, dynamic> json) {
+  return Images(json['brief'] as String, json['image'] as String,
       json['title'] as String, json['type'] as String, json['url'] as String);
 }
 
-Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
+Map<String, dynamic> _$ImagesToJson(Images instance) => <String, dynamic>{
       'brief': instance.brief,
       'image': instance.image,
       'title': instance.title,

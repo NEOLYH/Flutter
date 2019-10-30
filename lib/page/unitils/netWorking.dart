@@ -89,9 +89,12 @@ class HttpCore {
         return;
       }
       if (callBack != null) {
-        String res2Json = json.encode(response.data);
-        Map<String, dynamic> map = json.decode(res2Json);
-        callBack(map["data"]);
+        final jsonResponse = json.decode(response.data);
+        // String res2Json = json.encode(response.data);
+        // Map<String, dynamic> map = json.decode(res2Json);
+        // print('------');
+        // print(map);
+        callBack(jsonResponse);
       }
     } catch (exception) {
       _handError(errorCallBack, exception.toString());

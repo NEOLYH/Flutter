@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
+// import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:neo_lu/page/kehu/petCard.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 class KehuPage extends StatefulWidget {
   KehuPage({Key key}) : super(key: key);
@@ -9,6 +10,8 @@ class KehuPage extends StatefulWidget {
 }
 
 class _KehuPageState extends State<KehuPage> {
+  int _count = 10;
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -17,15 +20,39 @@ class _KehuPageState extends State<KehuPage> {
           appBar: new AppBar(
             title: new Text('客户'),
           ),
-          body: new ListView.separated(
-            itemBuilder: (BuildContext context, int index) {
-              return new petCard();
+          body: EasyRefresh(
+            child: new ListView.separated(
+              itemBuilder: (BuildContext context, int index) {
+                return new petCard();
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return new Container(height: 0.0, color: Colors.red);
+              },
+              itemCount: _count,
+            ),
+            onRefresh: () async {
+              setState(() {
+                _count = 10;
+              });
             },
-            separatorBuilder: (BuildContext context, int index) {
-              return new Container(height: 0.0, color: Colors.red);
+            onLoad: () async {
+              setState(() {
+                _count = _count + 10;
+              });
             },
-            itemCount: 10,
-          )),
+          )
+
+          // new ListView.separated(
+          //   itemBuilder: (BuildContext context, int index) {
+          //     return new petCard();
+          //   },
+          //   separatorBuilder: (BuildContext context, int index) {
+          //     return new Container(height: 0.0, color: Colors.red);
+          //   },
+          //   itemCount: 10,
+          // )
+
+          ),
     );
   }
 }
